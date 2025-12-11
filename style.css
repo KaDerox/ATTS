@@ -1,0 +1,436 @@
+/* ====== FONT ====== */
+body, a, button {
+    font-family: 'Inter', sans-serif;
+}
+
+/* ====== KOLORY / TŁO ====== */
+body {
+    margin: 0;
+    background: #06060A;
+    color: #d7d7d7;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(125,50,255,0.25), transparent 55%),
+        radial-gradient(circle at 90% 80%, rgba(0,153,255,0.30), transparent 55%);
+    filter: blur(120px);
+    z-index: -1;
+}
+
+/* ====== ANIMACJE GLOBALNE ====== */
+.fade, .fade-up, .slide-left, .slide-right {
+    animation-play-state: paused; /* ➜ WAŻNE */
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(25px);
+    animation: fadeUp 0.9s ease forwards;
+}
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.slide-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    animation: slideLeft 0.9s ease forwards;
+}
+@keyframes slideLeft {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.slide-right {
+    opacity: 0;
+    transform: translateX(40px);
+    animation: slideRight 0.9s ease forwards;
+}
+@keyframes slideRight {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* ====== HEADER ====== */
+header {
+    position: sticky;
+    top: 0;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10,10,15,0.75);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    z-index: 100;
+}
+
+header h1 {
+    color: rgb(255, 255, 255);
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    transition: 0.25s ease; /* ważne, by hover był płynny */
+}
+
+header h1:hover {
+    color: #e4e4e4;
+    transform: scale(1.20);
+    cursor: grab;
+}
+
+
+
+/* NAV */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+nav a {
+    color: #c4c4c4;
+    text-decoration: none;
+    font-weight: 500;
+    transition: .2s;
+}
+nav a:hover,
+nav a.active {
+    color: white;
+    cursor: pointer;
+}
+
+/* ====== HERO ====== */
+.hero {
+    text-align: center;
+    padding: 140px 8%;
+}
+
+.hero h2 {
+    font-size: 52px;
+    font-weight: 800;
+    color: white;
+}
+.hero span {
+    background: linear-gradient(90deg, #9048ff, #00c8ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.hero p {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #bdbdbd;
+}
+
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    padding: 14px 36px;
+    border-radius: 10px;
+    margin-top: 28px;
+    background: linear-gradient(90deg, #7c39ff, #008cff);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+}
+.btn:hover {
+    filter: brightness(1.2);
+    transform: translateY(-3px);
+    scale: 1.10;
+}
+
+/* ====== SEKCJE ====== */
+.section {
+    padding: 8px 8%;
+    max-width: 900px;
+    margin: auto;
+}
+
+.section h2 {
+    font-size: 38px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.section p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #c4c4c4;
+}
+footer {
+    margin-top: 70px;
+    background: #0a0a0e;
+    padding: 40px 0;
+    text-align: center;
+    color: #8b8b8b;
+    border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ====== KLIENCI SLIDER ====== */
+.clients {
+    margin-top: 90px;
+    padding: 40px 8%;
+    text-align: center;
+}
+
+.clients h2 {
+    font-size: 34px;
+    color: white;
+    margin-bottom: 35px;
+}
+
+.client-slider {
+    overflow: hidden;
+}
+
+.slide-track {
+    display: flex;
+    gap: 50px;
+    width: calc(280px * 16);
+    animation: scroll 28s linear infinite;
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-280px * 4)); }
+}
+
+.client {
+    width: 260px;
+    padding: 30px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: .3s;
+}
+.client:hover {
+    background: rgba(255,255,255,0.06);
+    transform: translateY(-5px);
+}
+.client img {
+    width: 70px;
+    height: 70px;
+    border-radius: 100%;
+    object-fit: cover;
+}
+.client h3 {
+    color: rgb(255, 255, 255);
+}
+.client p {
+    color: #cfcfcf;
+}
+
+/* ====== SEKCJA O NAS ====== */
+.onas-section {
+    padding: 80px 8%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.onas-section h1 {
+    font-size: 48px;
+    font-weight: 800;
+    color: white;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.onas-section h1:hover {
+    color: #f6ccff;
+    transform: scale(1.20);
+    cursor: grab;
+}
+
+.onas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    margin-top: 50px;
+}
+
+.onas-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.onas-card:hover {
+    background: rgba(255,255,255,0.06);
+    transform: translateY(-8px);
+    border-color: rgba(255,255,255,0.12);
+    box-shadow: 0 15px 40px rgba(125,50,255,0.3);
+}
+
+.onas-img {
+    width: 100%;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.onas-img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(6,6,10,0.9));
+}
+
+.onas-card h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+    margin: 25px 25px 12px 25px;
+}
+
+.onas-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #c4c4c4;
+    margin: 0 25px 25px 25px;
+}
+
+/* ====== SEKCJA KONTAKT - NOWY DESIGN ====== */
+.kontakt-section {
+    padding: 100px 8%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.kontakt-section h1 {
+    font-size: 52px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #9048ff, #00c8ff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.kontakt-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.kontakt-box {
+    position: relative;
+    background: rgba(255,255,255,0.02);
+    border: 1.5px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 30px 35px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    display: block;
+    min-height: 200px; /* ← DODAJ TO */
+}
+
+.kontakt-content {
+    position: relative;
+    z-index: 2;
+    padding-bottom: 50px; /* ← DODAJ TO - żeby tekst nie nachodzi na strzałkę */
+}
+
+
+/* Tło z ikoną SVG */
+.kontakt-bg-icon {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    opacity: 0.04;
+    transition: all 0.4s ease;
+    color: white;
+}
+
+.kontakt-box:hover .kontakt-bg-icon {
+    opacity: 0.1;
+    transform: rotate(15deg) scale(1.1);
+}
+
+/* Główna zawartość */
+.kontakt-content {
+    position: relative;
+    z-index: 2;
+}
+
+.kontakt-icon-small {
+    font-size: 42px;
+    margin-bottom: 15px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.kontakt-box:hover .kontakt-icon-small {
+    transform: scale(1.2) rotate(-5deg);
+}
+
+.kontakt-box h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.kontakt-main {
+    font-size: 20px;
+    font-weight: 600;
+    color: #00c8ff;
+    margin: 8px 0;
+    transition: 0.3s;
+}
+
+.kontakt-box:hover .kontakt-main {
+    color: #9048ff;
+    transform: translateX(5px);
+}
+
+.kontakt-stats {
+    font-size: 14px;
+    color: #8b8b8b;
+    margin-top: 8px;
+}
+
+.kontakt-arrow {
+    position: absolute;
+    bottom: 25px;  /* ← zmniejsz trochę */
+    right: 25px;   /* ← zmniejsz trochę */
+    font-size: 28px;
+    color: rgba(255,255,255,0.3);
+    transition: 0.3s;
+    z-index: 3; /* ← dodaj żeby była na wierzchu */
+}
+
+.kontakt-box:hover .kontakt-arrow {
+    color: rgba(255,255,255,0.8);
+    transform: translateX(8px);
+}
+
+/* Kolory dla różnych platform */
+.email-box:hover {
+    background: linear-gradient(135deg, rgba(125,50,255,0.05), rgba(0,153,255,0.05));
+}
+
+.discord-box:hover {
+    background: linear-gradient(135deg, rgba(88,101,242,0.08), rgba(125,50,255,0.08));
+}
+
+.youtube-box:hover {
+    background: linear-gradient(135deg, rgba(255,0,0,0.08), rgba(255,100,100,0.08));
+}
+
+.tiktok-box:hover {
+    background: linear-gradient(135deg, rgba(0,242,234,0.08), rgba(255,0,80,0.08));
+}

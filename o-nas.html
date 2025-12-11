@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ATTS - O nas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="fade">
+    <h1>ATTS</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Strona główna</a></li>
+            <li><a class="active" href="o-nas.html">O nas</a></li>
+            <li><a href="regulamin.html">Regulamin</a></li>
+            <li><a href="polityka.html">Polityka</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="onas-section fade-up">
+    <h1 style="text-align: center; margin-bottom: 30px;">O nas</h1>
+    <div class="onas-grid">
+        <div class="onas-card fade-up">
+            <div class="onas-img" style="background-image: url('img/misja.jpg');"></div>
+            <h2>Nasza Misja</h2>
+            <p>Tworzymy społeczność opartą na bezpieczeństwie, rozrywce i innowacji.</p>
+        </div>
+        <div class="onas-card fade-up">
+            <div class="onas-img" style="background-image: url('img/zespol.jpg');"></div>
+            <h2>Nasz Zespół</h2>
+            <p>ATTS tworzą ludzie z pasją do gier, technologii i kreatywności.</p>
+        </div>
+        <div class="onas-card fade-up">
+            <div class="onas-img" style="background-image: url('img/wizja.jpg');"></div>
+            <h2>Nasza Wizja</h2>
+            <p>Chcemy rozwijać projekt, który wyznacza nowe standardy jakości.</p>
+        </div>
+    </div>
+</main>
+
+<footer class="fade">
+    © 2025 ATTS – Wszelkie prawa zastrzeżone
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".fade, .fade-up, .slide-left, .slide-right");
+    const reveal = () => {
+        elements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 80) {
+                el.style.animationPlayState = "running";
+            }
+        });
+    };
+    reveal();
+    window.addEventListener("scroll", reveal);
+});
+</script>
+
+</body>
+</html>
